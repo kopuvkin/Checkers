@@ -32,7 +32,10 @@ namespace Checkers
             GameScreen.Visibility = Visibility.Visible;
         }
 
-
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close(); // Закрывает текущее окно
+        }
         private void Size(object sender, SizeChangedEventArgs e)
         {
             var grid = (Grid)sender;
@@ -54,3 +57,5 @@ namespace Checkers
         }
     }
 }
+
+

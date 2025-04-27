@@ -5,7 +5,7 @@
          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
          xmlns:local="clr-namespace:Checkers"
          mc:Ignorable="d"
-         Title="Play" Height="480" Width="480">
+         Title="Шашки" Height="480" Width="480">
 
     <Window.DataContext>
         <local:BoardViewModel/>
@@ -22,17 +22,26 @@
             <!-- ЭКРАН ОСНОВНОГО МЕНЮ -->
             <Grid x:Name="MenuScreen" Background="#252525" Visibility="{Binding IsMenuVisible}">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock Text="Выберите режим игры:"
+                <TextBlock Text="Шашунции 228"
                             FontSize="16" TextWrapping="Wrap" TextAlignment="Center" Margin="20" Foreground="#FEFEFE"/>
                     <Button Content="Одиночная игра" Command="{Binding StartGameCommand}"
                          Background="#FEFEFE" Foreground="#252525" Padding="10" FontSize="14" Width="250" Height="40"/>
 
                     <Button Content="Сетевая игра" Command="{Binding StartNetworkGameCommand}"
                          Background="#FEFEFE" Foreground="#252525" Padding="10" FontSize="14" Margin="0,20,0,0" Width="250" Height="40"/>
-                </StackPanel>
+
+                <Button Content="Настройки" Command="{Binding StartSettingsCommand}"
+                         Background="#FEFEFE" Foreground="#252525" Padding="10" FontSize="14" Margin="0,20,0,0" Width="250" Height="40"/>
+
+                <Button Content="Выйти"  Click="CloseButton_Click" 
+                        Background="#FEFEFE" Foreground="#252525" Padding="10" FontSize="14" Margin="0,20,0,0" Width="250" Height="40"/>
+                
+            </StackPanel>
             </Grid>
 
-            <!-- ЭКРАН СЕТЕВОЙ ИГРЫ -->
+       
+
+        <!-- ЭКРАН СЕТЕВОЙ ИГРЫ -->
             <Grid x:Name="NetworkGameScreen" Background="#252525" Visibility="{Binding IsNetworkGameVisible}">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock Text="Сетевая игра" FontSize="16" Margin="20" Foreground="#FEFEFE" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -41,10 +50,24 @@
 
                     <Button Content="Подключиться" Command="{Binding StartGameCommand}"
          Background="#FEFEFE" Foreground="#252525" Padding="10" FontSize="14" Margin="0,20,0,0" Width="250" Height="40"/>
-                </StackPanel>
+
+                <Button Content="Назад" Command="{Binding BackToMenuCommand}"
+         Background="#FEFEFE" Foreground="#252525" Padding="10" FontSize="14" Margin="0,20,0,0" Width="250" Height="40"/>
+            </StackPanel>
             </Grid>
 
-            <!-- ЭКРАН ИГРЫ -->
+        <!-- ЭКРАН НАСТРОЕК -->
+            <Grid x:Name="SettingsScreen" Background="#252525" Visibility="{Binding IsSettingsVisible}">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+  
+
+                <Button Content="Назад" Command="{Binding BackToMenuCommand}"
+         Background="#FEFEFE" Foreground="#252525" Padding="10" FontSize="14" Margin="0,20,0,0" Width="250" Height="40"/>
+            </StackPanel>
+            </Grid>
+
+
+        <!-- ЭКРАН ИГРЫ -->
             <Grid x:Name="GameScreen" Background="#EBECD0" Visibility="{Binding IsGameVisible}">
 
                 <!-- ПОЛЕ С ИГРОЙ -->
